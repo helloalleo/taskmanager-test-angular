@@ -20,6 +20,7 @@ import { LoginComponent } from './component/login/login.component';
 import {Ng2Webstorage, WebStorageService} from 'ngx-webstorage';
 import {UserService} from "./service/user.service";
 import {AuthGuard} from "./auth.guard";
+import {Ng2ImgToolsModule} from "ng2-img-tools";
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import {AuthGuard} from "./auth.guard";
     NgxDatatableModule,
     Ng2Webstorage,
     Ng2Webstorage.forRoot({prefix: 'taskmanager', separator: '.', caseSensitive: true}),
+    Ng2ImgToolsModule,
     AppRoutingModule
   ],
   providers: [

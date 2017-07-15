@@ -16,6 +16,16 @@
       {{value}}
     </ng-template>
   </ngx-datatable-column>
+  <ngx-datatable-column name="Текст" prop="content">
+    <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+      {{value}}
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column name="Картинки" prop="pictures">
+    <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+      <img *ngFor="let pic of value" [src]="pic" width="40">
+    </ng-template>
+  </ngx-datatable-column>
   <ngx-datatable-column name="Завершено" prop="completed">
     <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
       {{value ? 'Да' : 'Нет'}}
