@@ -11,12 +11,10 @@ export class HeaderComponent implements OnInit {
 
   @LocalStorage(AppConstants.LOGGED_IN_STORAGE_KEY) isLoggedIn: boolean;
 
-  constructor(private webStorage: WebStorageService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.webStorage.observe(AppConstants.LOGGED_IN_STORAGE_KEY).subscribe((val) => {
-      console.log(val);
-    })
+
   }
 
 }

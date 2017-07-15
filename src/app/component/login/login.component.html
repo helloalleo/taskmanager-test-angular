@@ -7,6 +7,9 @@
     <label for="password" class="control-label">Пароль</label>
     <input #password="ngModel" ngModel name="password" type="password" id="password" class="form-control">
   </div>
+  <div [hidden]="!errorMessage">
+    {{errorMessage}}
+  </div>
   <div>
     <button class="btn btn-primary pull-right">Войти</button>
   </div>

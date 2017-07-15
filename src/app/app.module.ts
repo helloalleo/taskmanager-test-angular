@@ -19,6 +19,7 @@ import { PageNotFoundComponent } from './component/page-not-found/page-not-found
 import { LoginComponent } from './component/login/login.component';
 import {Ng2Webstorage, WebStorageService} from 'ngx-webstorage';
 import {UserService} from "./service/user.service";
+import {AuthGuard} from "./auth.guard";
 
 @NgModule({
   declarations: [
@@ -46,7 +47,7 @@ import {UserService} from "./service/user.service";
   providers: [
     TaskService,
     UserService,
-    WebStorageService
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

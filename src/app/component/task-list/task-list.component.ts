@@ -11,7 +11,7 @@ export class TaskListComponent implements OnInit {
 
   tasks: Task[] = [];
 
-  public columns: Array<any> = [
+  columns: Array<any> = [
     {
       name: 'Имя пользователя',
       prop: 'username',

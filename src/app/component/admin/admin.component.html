@@ -1,3 +1,57 @@
-<p>
-  admin works!
-</p>
+<button (click)="logout()" class="btn btn-danger">Выйти</button>
+
+<ngx-datatable
+  #mydatatable
+  class="material"
+  [headerHeight]="50"
+  [limit]="5"
+  [columnMode]="'force'"
+  [footerHeight]="50"
+  [rowHeight]="'auto'"
+  [selected]="selected"
+  [selectionType]="'checkbox'"
+  (select)='onSelect($event)'
+  [columns]="columns"
+  [rows]="tasks">
+  <ngx-datatable-column name="Имя пользователя" prop="username">
+    <ng-template ngx-datatable-cell-template let-value="value">
+      {{value}}
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column name="E-mail" prop="email">
+    <ng-template ngx-datatable-cell-template let-value="value">
+      {{value}}
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column name="Текст" prop="content">
+    <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+      <span
+        title="Дважды кликните, чтобы отредактировать"
+        (dblclick)="editing[row.$$index + '-content'] = true"
+        *ngIf="!editing[row.$$index + '-content']">
+        {{value}}
+      </span>
+      <textarea
+        autofocus
+        (blur)="updateValue($event, 'content', value, row)"
+        *ngIf="editing[row.$$index + '-content']"
+        [value]="value">
+      </textarea>
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column name="Завершено" prop="completed"
+                        [checkboxable]="true">
+    <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+      {{value ? 'Да' : 'Нет'}}
+      <!--<span-->
+        <!--title="Дважды кликните, чтобы отредактировать"-->
+        <!--(dblclick)="editing[row.$$index + '-completed'] = true"-->
+        <!--*ngIf="!editing[row.$$index + '-completed']">-->
+        <!--{{value ? 'Да' : 'Нет'}}-->
+      <!--</span>-->
+      <!--<input type="checkbox" [value]="value"-->
+             <!--*ngIf="editing[row.$$index + '-completed']"-->
+             <!--(click)="updateStatus($event, 'completed', value, row)">-->
+    </ng-template>
+  </ngx-datatable-column>
+</ngx-datatable>

@@ -36,4 +36,7 @@ export class TaskService {
     return this.taskAddedEvent;
   }
 
+  save(task: Task) {
+    this.http.put(AppConstants.API_URL + AppConstants.TASK_PATH, task).subscribe();
+  }
 }
