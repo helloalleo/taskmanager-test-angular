@@ -12,7 +12,6 @@ export class AdminComponent implements OnInit {
 
   tasks: Task[];
   editing = {};
-  selected = [];
   columns: Array<any> = [
     {
       name: 'Имя пользователя',
@@ -50,8 +49,10 @@ export class AdminComponent implements OnInit {
     this.taskService.save(this.tasks[row.$$index]);
   }
 
-  onSelect({selected}) {
-    console.log(selected);
+  updateStatus(event, cell, cellValue, row) {
+    this.editing[row.$$index + '-' + cell] = false;
+    this.tasks[row.$$index][cell] = event.target.checked;
+    this.taskService.save(this.tasks[row.$$index]);
   }
 
   logout() {

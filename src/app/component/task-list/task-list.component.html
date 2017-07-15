@@ -6,4 +6,19 @@
   [footerHeight]="50"
   [limit]="3"
   [columns]="columns">
+  <ngx-datatable-column name="Имя пользователя" prop="username">
+    <ng-template ngx-datatable-cell-template let-value="value">
+      {{value}}
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column name="E-mail" prop="email">
+    <ng-template ngx-datatable-cell-template let-value="value">
+      {{value}}
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column name="Завершено" prop="completed">
+    <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+      {{value ? 'Да' : 'Нет'}}
+    </ng-template>
+  </ngx-datatable-column>
 </ngx-datatable>

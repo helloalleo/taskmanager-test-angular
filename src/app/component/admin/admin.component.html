@@ -8,9 +8,6 @@
   [columnMode]="'force'"
   [footerHeight]="50"
   [rowHeight]="'auto'"
-  [selected]="selected"
-  [selectionType]="'checkbox'"
-  (select)='onSelect($event)'
   [columns]="columns"
   [rows]="tasks">
   <ngx-datatable-column name="Имя пользователя" prop="username">
@@ -39,19 +36,17 @@
       </textarea>
     </ng-template>
   </ngx-datatable-column>
-  <ngx-datatable-column name="Завершено" prop="completed"
-                        [checkboxable]="true">
+  <ngx-datatable-column name="Завершено" prop="completed">
     <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
-      {{value ? 'Да' : 'Нет'}}
-      <!--<span-->
-        <!--title="Дважды кликните, чтобы отредактировать"-->
-        <!--(dblclick)="editing[row.$$index + '-completed'] = true"-->
-        <!--*ngIf="!editing[row.$$index + '-completed']">-->
-        <!--{{value ? 'Да' : 'Нет'}}-->
-      <!--</span>-->
-      <!--<input type="checkbox" [value]="value"-->
-             <!--*ngIf="editing[row.$$index + '-completed']"-->
-             <!--(click)="updateStatus($event, 'completed', value, row)">-->
+      <span
+        title="Дважды кликните, чтобы отредактировать"
+        (dblclick)="editing[row.$$index + '-completed'] = true"
+        *ngIf="!editing[row.$$index + '-completed']">
+        {{value ? 'Да' : 'Нет'}}
+      </span>
+      <input type="checkbox" [value]="value" [checked]="value"
+             *ngIf="editing[row.$$index + '-completed']"
+             (change)="updateStatus($event, 'completed', value, row)">
     </ng-template>
   </ngx-datatable-column>
 </ngx-datatable>
