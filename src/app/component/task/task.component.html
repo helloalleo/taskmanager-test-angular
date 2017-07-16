@@ -13,7 +13,7 @@
   </div>
   <div class="form-group">
     <label for="picture" class="control-label">Загрузить картинку</label>
-    <input type="file" (change)="onUploadPicture($event)" id="picture" class="form-control" accept="image/jpeg;image/gif;image/png">
+    <input type="file" (change)="onUploadPicture($event)" id="picture" class="form-control" accept="image/jpeg, image/jpg, image/gif, image/png">
     <ul>
       <li *ngFor="let pic of pictures">
         <img [src]="pic">
@@ -39,8 +39,12 @@
     <span id="p_content">{{formTask.form.value.content}}</span>
   </div>
   <div class="form-group">
-    <!--<label for="picture" class="control-label">Загрузить картинку</label>-->
-    <!--<input type="file" id="picture" class="form-control">-->
+    <label for="picture" class="control-label">Картинки</label>
+    <ul>
+      <li *ngFor="let pic of pictures">
+        <img [src]="pic">
+      </li>
+    </ul>
   </div>
   <div>
     <button (click)="preview = false" class="btn btn-default">Редактировать</button>
