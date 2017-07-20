@@ -16,6 +16,9 @@ export class TaskComponent implements OnInit {
   preview: boolean;
   pictures = [];
 
+  minlength: 3;
+  maxlength: 10;
+
   constructor(private taskService: TaskService,
               private http: Http,
               private imageToolService: Ng2ImgToolsService) {

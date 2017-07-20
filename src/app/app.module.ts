@@ -21,6 +21,7 @@ import {Ng2Webstorage, WebStorageService} from 'ngx-webstorage';
 import {UserService} from "./service/user.service";
 import {AuthGuard} from "./auth.guard";
 import {Ng2ImgToolsModule} from "ng2-img-tools";
+import {CustomFormsModule} from "ng2-validation";
 
 @NgModule({
   declarations: [

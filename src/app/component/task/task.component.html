@@ -1,19 +1,19 @@
-<form [hidden]="preview" #formTask="ngForm">
+<form [hidden]="preview" #formTask="ngForm" novalidate>
   <div class="form-group">
     <label for="username" class="control-label">Имя пользователя</label>
-    <input #username="ngModel" ngModel name="username" type="text" id="username" class="form-control">
+    <input #username="ngModel" ngModel required name="username" type="text" id="username" class="form-control">
   </div>
   <div class="form-group">
     <label for="email" class="control-label">E-mail</label>
-    <input #email="ngModel" ngModel name="email" type="email" id="email" class="form-control">
+    <input #email="ngModel" ngModel required name="email" type="email" id="email" class="form-control">
   </div>
   <div class="form-group">
     <label for="content" class="control-label">Текст задачи</label>
-    <textarea #content="ngModel" ngModel name="content" id="content" class="form-control"></textarea>
+    <textarea #content="ngModel" ngModel required name="content" id="content" class="form-control"></textarea>
   </div>
   <div class="form-group">
     <label for="picture" class="control-label">Загрузить картинку</label>
-    <input type="file" (change)="onUploadPicture($event)" id="picture" class="form-control" accept="image/jpeg, image/jpg, image/gif, image/png">
+    <input type="file" (change)="onUploadPicture($event)" required id="picture" class="form-control" accept="image/jpeg, image/jpg, image/gif, image/png">
     <ul>
       <li *ngFor="let pic of pictures">
         <img [src]="pic">
